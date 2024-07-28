@@ -16,7 +16,7 @@ public class UpperCasePhysicalNamingStrategy implements PhysicalNamingStrategy {
     @Override
     public Identifier toPhysicalTableName(Identifier identifier, JdbcEnvironment jdbcEnvironment) {
         Identifier physicalTableName = strategy.toPhysicalTableName(identifier, jdbcEnvironment);
-        Identifier physicalTableNameUpdated = new Identifier(physicalTableName.toString().toLowerCase(Locale.ROOT).replace("_entity", ""),false);
+        Identifier physicalTableNameUpdated = new Identifier(physicalTableName.toString().toUpperCase(Locale.ROOT).replace("_ENTITY", ""),true);
         return physicalTableNameUpdated;
     }
 
@@ -37,7 +37,7 @@ public class UpperCasePhysicalNamingStrategy implements PhysicalNamingStrategy {
 
     @Override
     public Identifier toPhysicalColumnName(Identifier logicalName, JdbcEnvironment jdbcEnvironment) {
-        return strategy.toPhysicalColumnName(logicalName, jdbcEnvironment);
+        return  new Identifier(strategy.toPhysicalColumnName(logicalName, jdbcEnvironment).toString().toUpperCase(),true);
     }
 
 }
