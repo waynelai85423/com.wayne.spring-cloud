@@ -3,8 +3,6 @@ package com.wayne.payment.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 @Table(name = "student")
 @Entity
