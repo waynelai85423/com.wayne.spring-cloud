@@ -20,13 +20,14 @@ public class PaymentTest {
 
     @Autowired
     PaymentRepository paymentRepository;
+
     @Test
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     @Commit
     public void test(){
         Map<String,String> map = Maps.newHashMap();
-        map.put("ex","32");
-        PaymentEntity build = PaymentEntity.builder().status("test01").serial("wayne").extras(map).build();
+        map.put("ex","51");
+        PaymentEntity build = PaymentEntity.builder().status("test06").serial("wayne").extras(map).build();
         PaymentEntity save = paymentRepository.save(build);
         System.out.println(save);
     }

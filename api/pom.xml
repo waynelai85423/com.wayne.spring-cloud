@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>api</artifactId>
-    <name>Archetype - api</name>
+    <name>api</name>
 
     <dependencies>
         <dependency>
