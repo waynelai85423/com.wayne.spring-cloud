@@ -16,7 +16,8 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     urls:
-      - name: 支付管理
-        url: http://${spring-cloud.payment}/v3/api-docs
       - name: 消費管理
         url: http://${spring-cloud.consumer}/v3/api-docs
+      - name: 支付管理
+        url: http://${spring-cloud.payment}/v3/api-docs
+
