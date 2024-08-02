@@ -11,6 +11,7 @@
     <modules>
         <module>jpa</module>
         <module>dto</module>
+        <module>web</module>
     </modules>
 
     <artifactId>utils</artifactId>
