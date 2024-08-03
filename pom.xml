@@ -20,12 +20,14 @@
 
 	<properties>
 		<java.version>21</java.version>
+		<maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
 		<spring-cloud.version>2023.0.3</spring-cloud.version>
 		<spring-boot.version>3.3.2</spring-boot.version>
 		<springdoc-openapi>2.2.0</springdoc-openapi>
 		<lombok.version>1.18.30</lombok.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
 		<lombok-mapstruct-binding>0.2.0</lombok-mapstruct-binding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencyManagement>
@@ -124,6 +126,24 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin.version}</version> <!-- 确保使用的是最新版本 -->
+				<configuration>
+					<source>${java.version}</source>
+					<doclint>none</doclint> <!-- 禁用 doclint，避免由于严格检查导致的构建失败 -->
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<additionalJOptions>-Xdoclint:none</additionalJOptions> <!-- 对于 JDK 8 及以上版本 -->
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>javadoc</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

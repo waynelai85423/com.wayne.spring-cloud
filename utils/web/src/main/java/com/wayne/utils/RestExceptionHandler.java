@@ -31,7 +31,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(CustumerErrorException.class)
     public ResponseEntity<Object> handleFeignException(CustumerErrorException ex) {
         log.error("FeignException: ", ex);
-        val apiError = new ApiError(HttpStatus.INTERNAL_SERVER_ERROR,ex.getMessage(),ex.getTrace(),ex);
+        val apiError = new ApiError(HttpStatus.INTERNAL_SERVER_ERROR,ex.getMessage(),ex.getTrace(),ex.getTimestamp(),ex);
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
 }

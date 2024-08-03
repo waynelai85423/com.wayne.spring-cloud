@@ -8,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import static com.fasterxml.jackson.annotation.JsonFormat.Shape.STRING;
 
@@ -52,6 +53,14 @@ public class ApiError {
         this.status = status;
         this.message = message;
         this.trace = trace;
+        this.debugMessage = ex.getLocalizedMessage();
+    }
+
+    public ApiError(HttpStatus status, String message, String trace, OffsetDateTime timestamp, Throwable ex) {
+        this.status = status;
+        this.message = message;
+        this.trace = trace;
+        this.timestamp = timestamp.toLocalDateTime();
         this.debugMessage = ex.getLocalizedMessage();
     }
 }
