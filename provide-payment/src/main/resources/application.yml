@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    active: ${env}
+    active: '@profile.active@,@database.profile.active@'
 
   application:
     name: cloud-payment-service

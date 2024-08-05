@@ -66,4 +66,54 @@
 			<artifactId>mapstruct</artifactId>
 		</dependency>
 	</dependencies>
+
+<!--	<build>-->
+<!--		<resources>-->
+<!--			<resource>-->
+<!--				<directory>src/main/resources</directory>-->
+<!--				<excludes>-->
+<!--					<exclude>application*.yml</exclude>-->
+<!--				</excludes>-->
+<!--			</resource>-->
+<!--			<resource>-->
+<!--				<directory>src/main/resources</directory>-->
+<!--				<filtering>true</filtering>-->
+<!--				<includes>-->
+<!--					<include>application.yml</include>-->
+<!--					<include>application-${profile.active}.yml</include>-->
+<!--					<include>application-${database.profile.active}.yml</include>-->
+<!--				</includes>-->
+<!--			</resource>-->
+<!--		</resources>-->
+<!--	</build>-->
+
+	<profiles>
+		<profile>
+			<id>postgres</id>
+			<properties>
+				<database.profile.active>postgres</database.profile.active>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.postgresql</groupId>
+					<artifactId>postgresql</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>h2</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<database.profile.active>h2</database.profile.active>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>com.h2database</groupId>
+					<artifactId>h2</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 </project>
