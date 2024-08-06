@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @Component
-@FeignClient(name = "payment",url = "${wayne.payment.http.url:localhost:8001}",path = "/payment")
+@FeignClient(name = "cloud-payment-service",path = "/payment")
 public interface PaymentFeignService {
 
     @GetMapping(value = "/get/{id}")

@@ -19,6 +19,13 @@ spring:
         show_sql: true
         format_sql: true
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true #配置優先使用IP位址
+
 logging:
   level:
     root: INFO
