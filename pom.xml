@@ -11,6 +11,7 @@
 	<description>com.wayne.spring-cloud</description>
 
 	<modules>
+		<module>eureka-server</module>
 		<module>provide-payment</module>
 		<module>consumer</module>
 		<module>utils</module>
@@ -130,12 +131,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>${maven-javadoc-plugin.version}</version> <!-- 确保使用的是最新版本 -->
+				<version>${maven-javadoc-plugin.version}</version>
 				<configuration>
 					<source>${java.version}</source>
-					<doclint>none</doclint> <!-- 禁用 doclint，避免由于严格检查导致的构建失败 -->
+					<doclint>none</doclint> <!-- 禁用 doclint，避免因嚴格檢查導致的建置失敗 -->
 					<encoding>${project.build.sourceEncoding}</encoding>
-					<additionalJOptions>-Xdoclint:none</additionalJOptions> <!-- 对于 JDK 8 及以上版本 -->
+					<additionalJOptions>-Xdoclint:none</additionalJOptions> <!-- 適用於 JDK 8 以上版本 -->
 				</configuration>
 				<executions>
 					<execution>
