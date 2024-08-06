@@ -1,0 +1,15 @@
+server:
+  port: 7001
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: eureka-server
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    wait-time-in-ms-when-sync-empty: 0 #值為 0 表示 Eureka Server 不會等待任何同步操作的完成，而是立即啟動。值為正數表示Eureka Server將等待指定的毫秒數，等待來自其他Eureka Server節點同步資訊。
