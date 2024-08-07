@@ -7,8 +7,8 @@ spring:
 
 
 spring-cloud:
-  payment: ${PAYMENT_HOST:localhost}:${PAYMENT_PORT:8001}
-  consumer: ${CONSUMER_HOST:localhost}:${CONSUMER_PORT:8002}
+  consumer: ${CONSUMER_HOST:localhost}:${CONSUMER_PORT:8001}
+  payment: ${PAYMENT_HOST:localhost}:${PAYMENT_PORT:8002}
 
 springdoc:
   api-docs:

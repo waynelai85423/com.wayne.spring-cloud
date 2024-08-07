@@ -1,5 +1,5 @@
 server:
-  port: 8002
+  port: 8001
 
 spring:
   application:
@@ -8,9 +8,9 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka-server-1:7001/eureka/
   instance:
-    prefer-ip-address: true #配置優先使用IP位址
+    prefer-ip-address: true #eureka顯示IP位址
 
 logging:
   level:

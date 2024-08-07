@@ -1,0 +1,14 @@
+spring:
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        show_sql: true
+#        format_sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: wayne
+    driver-class-name: org.postgresql.Driver
+
+

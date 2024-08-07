@@ -39,7 +39,6 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public List<Payment> getPaymentAll() {
-        int i = 100 / 0;
         return paymentMapper.fromJpa(paymentRepository.findAll());
     }
 

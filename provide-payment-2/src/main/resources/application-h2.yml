@@ -1,0 +1,12 @@
+
+spring:
+    # spring datasource configuration 的配置
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: wayne
+    url: jdbc:h2:mem:wayneApp;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE  # H2 的 JDBC URL, mem 表示使用記憶體, my_app 是資料庫的名稱
+  h2:
+    console:
+      enabled: true  # 設定要啟用 H2 的 console 可以在瀏覽器上面查詢 table
+      path: /h2 # 瀏覽器 console 的 URL 路徑
