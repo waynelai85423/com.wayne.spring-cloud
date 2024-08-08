@@ -79,6 +79,11 @@ public class CustumerErrorException extends RuntimeException {
         }
     }
 
+    /**
+     * @description: 把Exception的response轉成自訂議Exception物件回傳
+     * @author: Wayne Lai
+     * @date:  2024/08/09 02:19:00
+     **/
     public static CustumerErrorException buildCustumerErrorException(Response response) {
         String responseBody = "INTERNAL_SERVER_ERROR";
         try (BufferedReader reader = new BufferedReader(
