@@ -61,6 +61,13 @@ public class CustumerErrorException extends RuntimeException {
 
     public CustumerErrorException(String message){super(message);}
 
+    public CustumerErrorException(String status,String message){
+        super(message);
+        this.message = message;
+        this.timestamp = OffsetDateTime.now();
+        this.status = status;
+    }
+
     public static class OffsetDateTimeDeserializer extends JsonDeserializer<OffsetDateTime> {
         private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
 
@@ -73,9 +80,10 @@ public class CustumerErrorException extends RuntimeException {
     }
 
     public static CustumerErrorException buildCustumerErrorException(Response response) {
+        String responseBody = "INTERNAL_SERVER_ERROR";
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(response.body().asInputStream(), StandardCharsets.UTF_8))) {
-            String responseBody = reader.lines().collect(Collectors.joining());
+            responseBody = reader.lines().collect(Collectors.joining());
             ObjectMapper objectMapper = new ObjectMapper();
             SimpleModule module = new SimpleModule();
             module.addDeserializer(OffsetDateTime.class, new OffsetDateTimeDeserializer());
@@ -84,8 +92,8 @@ public class CustumerErrorException extends RuntimeException {
             return exception;
         } catch (Exception e) {
             e.printStackTrace();
+            return new CustumerErrorException("INTERNAL_SERVER_ERROR",responseBody);
         }
-        return new CustumerErrorException("INTERNAL_SERVER_ERROR");
     }
 
 }
