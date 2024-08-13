@@ -27,6 +27,9 @@ public class PaymentContoller {
     @Value("${server.port}")
     private  String serverPort ;
 
+    @Value("${wayne}")
+    private  String wayne ;
+
     @Operation(summary = "創建支付")
     @PostMapping(value = "/create")
     public CommonResult<Payment> create(@RequestBody PaymentRequest paymentRequest) {
@@ -56,7 +59,6 @@ public class PaymentContoller {
     @Operation(summary = "查詢全部")
     @GetMapping(value = "/get/all")
     public CommonResult<List<Payment>> getPaymentAll() {
-
         List<Payment> results = paymentService.getPaymentAll();
         log.info("payment query result is:,{} ", results);
 
@@ -64,5 +66,11 @@ public class PaymentContoller {
             return new CommonResult(200, "success: "  + serverPort, results);
         }
         return new CommonResult(444, "failure: " , null);
+    }
+
+    @Operation(summary = "springCloudConfigTest")
+    @GetMapping(value = "/springCloudConfigTestl")
+    public String springCloudConfigTest() {
+        return wayne + ":"  + serverPort;
     }
 }

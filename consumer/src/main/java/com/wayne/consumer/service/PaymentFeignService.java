@@ -26,4 +26,7 @@ public interface PaymentFeignService {
 
     @GetMapping(value = "/get/all")
     CommonResult<List<Payment>> getPaymentAll();
+
+    @GetMapping(value = "/springCloudConfigTestl")
+    String springCloudConfigTest();
 }

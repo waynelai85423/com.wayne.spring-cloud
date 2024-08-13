@@ -7,6 +7,12 @@ spring:
 
   application:
     name: cloud-payment-service
+  cloud:
+    config:
+      uri: http://localhost:8004
+      label: master
+      profile: postgres
+
   jpa:
     open-in-view: false
     show-sql: true

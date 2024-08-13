@@ -59,4 +59,10 @@ public class OrderFeignController {
         }
     }
 
+    @Operation(summary = "springCloudConfigTest")
+    @GetMapping(value = "/springCloudConfigTestl")
+    public String springCloudConfigTest() {
+        return paymentFeignService.springCloudConfigTest();
+    }
+
 }
