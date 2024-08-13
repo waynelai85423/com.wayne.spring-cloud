@@ -7,11 +7,18 @@ spring:
 
   application:
     name: cloud-payment-service
+
   cloud:
     config:
       uri: http://localhost:8004
       label: master
       profile: postgres
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
   jpa:
     open-in-view: false
@@ -37,3 +44,12 @@ logging:
     root: INFO
     org.springframework: DEBUG
     org.hibernate: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh, health, info
+  endpoint:
+    bus-refresh:
+      enabled: true
