@@ -49,7 +49,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: bus-refresh, health, info
+        include: "*"
   endpoint:
     bus-refresh:
       enabled: true
