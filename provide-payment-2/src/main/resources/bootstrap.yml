@@ -50,6 +50,3 @@ management:
     web:
       exposure:
         include: "*"
-  endpoint:
-    bus-refresh:
-      enabled: true
